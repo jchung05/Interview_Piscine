@@ -1,0 +1,5 @@
+Time Complexity
+O(N^2) Quicksort with no partitioning tricks
+
+Space Complexity
+O(1) No memalloc

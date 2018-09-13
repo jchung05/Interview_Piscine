@@ -1,0 +1,5 @@
+Time Complexity
+O(logN) Iterative binary search on sorted set
+
+Space Complexity
+O(1) No memalloc

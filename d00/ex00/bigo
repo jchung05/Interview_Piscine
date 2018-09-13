@@ -1,0 +1,5 @@
+Time Complexity
+O(N) Linear pass
+
+Space Complexity
+O(1) No memalloc
