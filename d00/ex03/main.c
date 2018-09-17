@@ -14,12 +14,14 @@ int main(void)
 	/*-------------------
 	launch your test here
 	--------------------*/
-	struct s_dict *dict = dictInit(100000);
+	struct s_dict *dict = dictInit(1000000);
 
 	static int		i;
 	while (arts[++i])
 		dictInsert(dict, strdup(arts[i]->name), arts[i]);
 
+
+	printf("%d\n", searchPrice(dict, "Guernica"));
 	printf("%d\n", searchPrice(dict, "ASDGADSGSSGDASDADGS"));
 	printf("%d\n", searchPrice(dict, "VANVES"));
 
