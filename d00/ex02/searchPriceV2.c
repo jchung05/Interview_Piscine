@@ -5,24 +5,20 @@
 //Binary search
 int		searchPrice(struct s_art **arts, int n, char *name)
 {
-	int		mid = n / 2;
+	int		mid;
 	int		left = 0;
 	int		right = n - 1;
 
 	while (left <= right)
 	{
+		mid = (right - left) / 2;
+
 		if (!strcmp(arts[mid]->name, name))
 			return (mid);
 		if (strcmp(arts[mid]->name, name) < 0)
-		{
-			right = mid;
-			mid = (left + right) / 2 + 1;
-		}
+			left = mid + 1;
 		else
-		{
-			left = mid;
-			mid = (left + right) / 2 - 1;
-		}
+			right = mid - 1;
 	}
 	return (-1);
 }
