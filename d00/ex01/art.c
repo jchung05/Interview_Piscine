@@ -20,7 +20,8 @@ int main(void)
 
 	//print sorted array
 	for (int i = 0; arts[i]; i++) {
-		printf("%s => %d\n", arts[i]->name, arts[i]->price);
+		// printf("%s => %d\n", arts[i]->name, arts[i]->price);
+		printf("%s\n", arts[i]->name);
 	}
 
 	return (0);

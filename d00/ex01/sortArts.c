@@ -4,7 +4,9 @@
 
 int		comparator(const void *a, const void *b)
 {
-	return strcmp((const char *)(((struct s_art *)a)->name), (const char *)(((struct s_art *)b)->name));
+	struct s_art	*x = *(struct s_art **)a;
+	struct s_art	*y = *(struct s_art **)b;
+	return strcmp((const char *)x->name, (const char *)y->name);
 }
 
 void	sortArts(struct s_art **arts)
