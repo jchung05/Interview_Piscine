@@ -111,39 +111,35 @@ int				dictSearch(struct s_dict *dict, char *key)
 char			*makeHeader(struct s_dict *dict, int *size)
 {
 	int len = 0;
+	struct s_item		*tmp;
 
-	int i = 0;
 	//Pass once for total malloc size
-	while (i < dict->capacity)
+	for (int i = 0; i < dict->capacity; i++)
 	{
-		struct s_item *temp = dict->items[i];
-		while (temp) 
+		tmp = dict->items[i];
+		while (tmp) 
 		{
-			len += strlen(temp->key) + 1;
-			temp = temp->next;
+			len += strlen(tmp->key) + 1;
+			tmp = tmp->next;
 		}
-		i++;
 	}
-	len++;
-	char *header = calloc(1, len + 1);
+	char *header = calloc(1, ++len + 1);
 	*size = len;
-	i = 0;
 	header[0] = '<';
 	char *h = header + 1;
 
 	//Pass again to copy everything into a return string
-	while (i < dict->capacity)
+	for (int i = 0; i < dict->capacity; i++)
 	{
-		struct s_item *temp = dict->items[i];
-		while (temp) 
+		tmp = dict->items[i];
+		while (tmp) 
 		{
-			int cur = strlen(temp->key);
-			strncpy(h, temp->key, cur);
+			int cur = strlen(tmp->key);
+			strncpy(h, tmp->key, cur);
 			h[cur] = ',';
-			temp = temp->next;
+			tmp = tmp->next;
 			h = h + cur + 1;
 		}
-		i++;
 	}
 	*(h - 1) = '>';
 	return header;

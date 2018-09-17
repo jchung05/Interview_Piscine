@@ -23,17 +23,17 @@ int main(void)
 	
 	dict = dictInit(lenWords);
 
-	printf("<");
+	// printf("<");
 
 	for (int i = 0; i < lenWords; i++)
 	{
-		if (i)
-			printf(",");
+		// if (i)
+			// printf(",");
 		dictInsert(dict, words[i], i + 1);
-		printf("%s", words[i]);
+		// printf("%s", words[i]);
 	}
 
-	printf(">");
+	// printf(">");
 
 	printf("%s\n", compress(book, dict));
 
