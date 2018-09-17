@@ -1,0 +1,5 @@
+Time Complexity
+O(N) on hash table retrieval with really shitty probing algorithm
+
+Space Complexity
+O(N) with N being the capacity value given unless we are choosing an optimal load factor
