@@ -14,11 +14,16 @@ size_t			hash(char *input)
 
 struct s_dict	*dictInit(int capacity)
 {
-	struct s_dict	*newDict = (struct s_dict)malloc(sizeof(struct s_dict));
+	struct s_dict	*newDict = (struct s_dict *)malloc(sizeof(struct s_dict));
 	int				i = -1;
 
 	if (!newDict)
 		return (NULL);
+	if (capacity < 1)
+	{
+		free(newDict);
+		return (NULL);
+	}
 	newDict->capacity = capacity;
 	newDict->items = (struct s_item **)malloc(sizeof(struct s_item *) * capacity);
 	if (!newDict->items)
@@ -55,7 +60,7 @@ int				dictInsert(struct s_dict *dict, char *key, struct s_art *value)
 	{
 		newItem = itemInit(key, value);
 		if (!newItem)
-			return (NULL);
+			return (-1);
 
 		idx = hash(key);
 		//Iterate to last LL item and append
