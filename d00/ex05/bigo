@@ -1,0 +1,5 @@
+Time Complexity
+O(N) k * N complexity based on multiple singular passes through the book, where N is based on number of characters total
+
+Space Complexity
+O(N) Dictionary space is constant plus the total size of the compressed string, which can be calculated.
