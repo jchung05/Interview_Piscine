@@ -24,15 +24,14 @@ struct s_string		*stringInit(void)
 //return 0 = FAIL, 1 = SUCCESS
 int					stringAppend(struct s_string *s, char *add)
 {
+	printf("xy\n");
+	//printf("%s\n", add);
 	size_t		addLen = strlen(add);
-	printf("Fuck me\n");
 
 	if (s->length + addLen > s->capacity)
 		return (0);
-	printf("Fuck you\n");
 	strcat(s->content, add);
 	s->length += addLen;
-	printf("Fuck everybody\n");
 	return (1);
 }
 
@@ -48,7 +47,6 @@ char				**splitHeader(char *cBook)
 		return (NULL);
 	strncpy(header, cBook + 1, rbracket - cBook - 1);
 	header[rbracket - cBook - 1] = 0;
-	printf("%s\n", header);
 
 	char			*tok = strtok(header, ",");
 
@@ -72,21 +70,16 @@ char				**splitHeader(char *cBook)
 
 char				*decompress(char *cBook)
 {
-	printf("Fuck\n");
 	struct s_string		*decompressed = stringInit();
-
-	printf("Fuck1\n");
 
 	//Return the list of tokens in an array
 	char				**headerTok = splitHeader(cBook);
 	if (!headerTok)
 		return (NULL);
 
-	printf("Fuck2\n");
 	//Move the pointer past the header information
 	char				*rbracket = strchr(cBook, '>');
 	cBook += (rbracket - cBook);
-	printf("Fuck3\n");
 
 	//Search for @ symbol and append to those points -1
 	char				*atSym = strchr(cBook, '@');
@@ -94,52 +87,57 @@ char				*decompress(char *cBook)
 	char				*toWrite;
 	size_t				size;
 	int					compressedChar;
+	int					addLen;
 
 	while (atSym)
 	{
-		printf("Fucka\n");
 		size = atSym - cBook + 1;
 		//Take out 1 for the @ symbol
 		toWrite = (char *)malloc(sizeof(char) * size);
-		printf("Fuckb\n");
 		strncpy(toWrite, cBook, size - 1);
-		printf("FUCK\n");
 		toWrite[size - 1] = 0;
-		//toWrite[size - 1] = 0;
-		printf("Fuckc\n");
-		printf("%d\n", size);
-		printf("%s\n", toWrite);
+		printf("%lu\n", size);
 
 		//Append non compressed words to decompressed object, resize if it fails
 		while (!stringAppend(decompressed, toWrite))
 		{
-			printf("Fucking\n");
-			tmpContent = decompressed->content;
-			decompressed->content = realloc(decompressed->content, decompressed->capacity * 2);
-			strncpy(decompressed->content, tmpContent, decompressed->length);
-			free(tmpContent);
-			decompressed->capacity *= 2;
-		}
-		printf("Fuckd\n");
+			printf("x\n");
+			addLen = strlen(toWrite);
+			printf("%d\t%d\t%d/%d\n", strlen(decompressed->content), addLen, decompressed->length, decompressed->capacity);
+			printf("x\n");
 
+			while (decompressed->capacity < decompressed->length + addLen)
+				decompressed->capacity *= 2;
+			printf("x\n");
+			tmpContent = decompressed->content;
+			decompressed->content = (char *)realloc(decompressed->content, decompressed->capacity);
+			printf("x\n");
+			strncpy(decompressed->content, tmpContent, decompressed->length);
+			printf("x\n");
+		}
+		printf("%d\t%d/%d\n", strlen(decompressed->content), decompressed->length, decompressed->capacity);
 		cBook += size;
 
 		//Decipher compressed char
 		compressedChar = cBook[0];
+		printf("%d\n", compressedChar);
 		while(!stringAppend(decompressed, headerTok[compressedChar - 1]))
 		{
+			printf("y\n");
+			addLen = strlen(headerTok[compressedChar - 1]);
+
+			while (decompressed->capacity < decompressed->length + addLen)
+				decompressed->capacity *= 2;
 			tmpContent = decompressed->content;
-			decompressed->content = realloc(decompressed->content, decompressed->capacity * 2);
+			decompressed->content = realloc(decompressed->content, decompressed->capacity);
 			strncpy(decompressed->content, tmpContent, decompressed->length);
-			free(tmpContent);
-			decompressed->capacity *= 2;
 		}
-		printf("Fucke\n");
 
 		cBook++;
 
 		atSym = strchr(cBook, '@');
 		free(toWrite);
+		printf("%d/%d\n", decompressed->length, decompressed->capacity);
 	}
 
 	return (decompressed->content);
