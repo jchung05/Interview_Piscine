@@ -1,0 +1,5 @@
+Time Complexity
+O(N) Linear time to traverse all values
+
+Space Complexity
+O(N) Linear recursive depth
