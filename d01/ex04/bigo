@@ -1,0 +1,5 @@
+Time Complexity
+O(1) on important queue operations and this is a stupid ass question to ask.
+
+Space Complexity
+O(1) on important queue operations and this is a stupid ass question to ask. O(N) on size of queue
