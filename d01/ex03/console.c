@@ -63,15 +63,6 @@ char			*console()
 
 		if (!strncmp(input, "UNDO", 4))
 		{
-			// peekVal = peek(stack);
-			// if (peekVal != -1)
-			// {
-			// 	peekVal = pop(stack);
-			// 	memset(message + idx, 0, 1);
-			// 	idx = peekVal;
-			// }
-			// else
-			// 	printf("There is no message to undo\n");
 			if (peek(stack) != -1)
 			{
 				len = pop(stack);

@@ -1,6 +1,11 @@
 #ifndef HEADER_H
 # define HEADER_H
 
+#include <stdio.h> //printf, scanf, ...
+#include <string.h> //memcpy, strlen, ...
+#include <unistd.h> //fork, write, sleep...
+#include <stdlib.h> //malloc, free, exit...
+
 /*--------------------------------
   !! required structure
   --------------------------------*/
@@ -40,6 +45,10 @@ int tankPop(struct s_tank *tank);
 /*--------------------------------
   &  your own other function
   --------------------------------*/
-
+struct s_stack  *stackInit();
+void            push(struct s_stack *, int);
+int             pop(struct s_stack *);
+int             isEmpty(struct s_stack *);
+int             peek(struct s_stack *);
 
 #endif

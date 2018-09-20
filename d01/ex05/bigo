@@ -1,0 +1,5 @@
+Time Complexity
+O(1) on important stack operations because of a counter for number of items on stack.
+
+Space Complexity
+O(1) on important stack operations and this is a stupid ass question to ask. O(N + k) on size of stack including overhead of empty spaces not filled by a push.
