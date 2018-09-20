@@ -17,8 +17,8 @@ int main(void)
 	/*-------------------
 	launch your test here
 	--------------------*/
-	//printSnakeAndLadders(node);
-	//nodeCLoned = cloneGameBoard(node);
+	printSnakeAndLadders(node);
+	nodeCloned = cloneGameBoard(node);
 
 	return (0);
 }
