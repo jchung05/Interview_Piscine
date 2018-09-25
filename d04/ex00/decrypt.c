@@ -12,7 +12,7 @@ int toInt(char *bits)
 		shift = shift << 1;
 		i--;
 	}
-	return result;
+	return (result);
 }
 
 char *getSum(char *a, char *b)
@@ -35,5 +35,5 @@ char *getSum(char *a, char *b)
 			add = 1;
 		}
 	}
-	return a;
+	return (a);
 }

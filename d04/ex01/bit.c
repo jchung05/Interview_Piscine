@@ -9,7 +9,7 @@ char *getNot(char *a)
 		i++;
 	}
 	a[i] = 0;
-	return a;
+	return (a);
 }
 
 char *getAnd(char *a, char *b)
@@ -29,7 +29,7 @@ char *getAnd(char *a, char *b)
 			a[i] = '0';
 		i++;
 	}
-	return a;
+	return (a);
 }
 
 char *getOr(char *a, char *b)
@@ -49,7 +49,7 @@ char *getOr(char *a, char *b)
 			a[i] = '0';
 		i++;
 	}
-	return a;
+	return (a);
 }
 
 int toInt(char *bits)
@@ -64,5 +64,5 @@ int toInt(char *bits)
 		shift = shift << 1;
 		i--;
 	}
-	return result;
+	return (result);
 }

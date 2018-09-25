@@ -1,0 +1,5 @@
+Time Complexity
+O(N) Linear time to traverse all values
+
+Space Complexity
+O(1) for operation to make BST nodes, O(N) for the whole tree

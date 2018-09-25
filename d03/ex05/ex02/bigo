@@ -1,0 +1,5 @@
+Time Complexity
+O(N) Linear time to traverse all values if not found
+
+Space Complexity
+O(1) for operation space, O(N^2) for recursive overhead and no matching ancestor found
