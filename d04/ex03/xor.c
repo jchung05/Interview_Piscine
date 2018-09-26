@@ -11,7 +11,7 @@ int toInt(char *bits)
 		result = result + shift * (bits[i] - '0');
 		shift = shift << 1;
 	}
-	return result;
+	return (result);
 }
 
 char *getXor(char *a, char *b)
@@ -20,5 +20,5 @@ char *getXor(char *a, char *b)
 
 	while (++i < 6)
 		a[i] = a[i] == b[i] ? '0' : '1';
-	return a;
+	return (a);
 }
