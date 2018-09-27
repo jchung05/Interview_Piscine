@@ -20,7 +20,7 @@ int main(int ac, char **av)
 	/*-------------------
 	launch your test here
 	--------------------*/
-	// printf("It is%s possible !\n", (isPossible(people, nbTable, totalTime)) ? "" : " NOT");
+	printf("It is%s possible !\n", (isPossible(people, nbTable, totalTime)) ? "" : " NOT");
 
 	return (0);
 }
