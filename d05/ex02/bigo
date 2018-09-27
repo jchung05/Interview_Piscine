@@ -1,0 +1,5 @@
+Runtime Complexity
+O(N^2) - Recursion only goes down one level to precompute all the optimal prices in a quadratic run-time
+
+Space Complexity
+O(N) Linear space for precomputed array
