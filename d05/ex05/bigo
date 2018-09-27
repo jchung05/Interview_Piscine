@@ -1,0 +1,5 @@
+Runtime Complexity
+O(N!) - Factorial because recursive is shit
+
+Space Complexity
+O(k) k for however big the initialized dictionary is
