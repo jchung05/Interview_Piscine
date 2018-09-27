@@ -1,0 +1,5 @@
+Runtime Complexity
+O(N^2) - Recursion across a square map is N * N
+
+Space Complexity
+O(N) Linear space for linear recursive stack call technically multiplied by 4
