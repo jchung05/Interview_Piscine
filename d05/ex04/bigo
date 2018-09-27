@@ -1,0 +1,5 @@
+Runtime Complexity
+O(N!) - Factorial because recursive is shit
+
+Space Complexity
+O(N) Linear space for each recursive stack call
