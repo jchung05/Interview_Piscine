@@ -1,0 +1,5 @@
+Runtime Complexity
+O(N) Linear traversal of items
+
+Space Complexity
+O(1) Operation times
