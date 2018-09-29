@@ -1,0 +1,5 @@
+Runtime Complexity
+O(N) to create every node in linear time
+
+Space Complexity
+O(N) Recursive stack call
